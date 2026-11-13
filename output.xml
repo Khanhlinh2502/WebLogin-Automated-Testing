@@ -1,0 +1,1970 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5.1 (Python 3.12.10 on win32)" generated="2026-11-12T18:12:39.177291" rpa="false" schemaversion="5">
+<suite id="s1" name="Login Tests" source="C:\Users\Admin\Desktop\Testlogin\login_tests.robot">
+<kw name="Open Browser To Login Page" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:39.811999" level="INFO">Opening browser 'Chrome' to base url 'http://127.0.0.1:5500/WebLogin.html'.</msg>
+<arg>${LOGIN URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-11-12T18:12:39.811999" elapsed="2.606107"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-11-12T18:12:42.423404" elapsed="0.029669"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>0.04s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2026-11-12T18:12:42.453073" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:12:39.811999" elapsed="2.642779"/>
+</kw>
+<test id="s1-t1" name="TC_BVA_01" line="56">
+<kw name="Reset Form Va Trang Thai" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:42.454778" level="INFO">Executing JavaScript:
+if (window.resetState) { window.resetState(); } else { window.failCount = 0; }
+Without any arguments.</msg>
+<arg>if (window.resetState) { window.resetState(); } else { window.failCount = 0; }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-12T18:12:42.454778" elapsed="0.049517"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:12:42.454778" elapsed="0.049517"/>
+</kw>
+<kw name="Kiem Tra Dang Nhap">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:42.504295" level="INFO">Typing text 'linh' into text field 'id=username'.</msg>
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:42.504295" elapsed="0.227287"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:42.731582" level="INFO">Typing text 'Secret@2026' into text field 'id=password'.</msg>
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:42.731582" elapsed="0.266439"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:42.998021" level="INFO">Clicking button 'id=btnSubmit'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:42.998021" elapsed="0.315661"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-12T18:12:43.513972" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-11-12T18:12:43.313682" elapsed="0.200290"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:43.635476" level="INFO">${actual_msg} = Thông tin đăng nhập không chính xác! (Còn 2 lần)</msg>
+<var>${actual_msg}</var>
+<arg>${MSG_BOX}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:43.513972" elapsed="0.121504"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2026-11-12T18:12:43.635476" level="FAIL">Thông tin đăng nhập không chính xác! (Còn 2 lần) != Tên đăng nhập phải có độ dài từ 5 đến 20 ký tự.</msg>
+<arg>${actual_msg}</arg>
+<arg>${expected_msg}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="FAIL" start="2026-11-12T18:12:43.635476" elapsed="0.000000">Thông tin đăng nhập không chính xác! (Còn 2 lần) != Tên đăng nhập phải có độ dài từ 5 đến 20 ký tự.</status>
+</kw>
+<arg>linh</arg>
+<arg>Secret@2026</arg>
+<arg>Tên đăng nhập phải có độ dài từ 5 đến 20 ký tự.</arg>
+<status status="FAIL" start="2026-11-12T18:12:42.504295" elapsed="1.131181">Thông tin đăng nhập không chính xác! (Còn 2 lần) != Tên đăng nhập phải có độ dài từ 5 đến 20 ký tự.</status>
+</kw>
+<status status="FAIL" start="2026-11-12T18:12:42.454778" elapsed="1.180698">Thông tin đăng nhập không chính xác! (Còn 2 lần) != Tên đăng nhập phải có độ dài từ 5 đến 20 ký tự.</status>
+</test>
+<test id="s1-t2" name="TC_BVA_02" line="57">
+<kw name="Reset Form Va Trang Thai" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:43.642320" level="INFO">Executing JavaScript:
+if (window.resetState) { window.resetState(); } else { window.failCount = 0; }
+Without any arguments.</msg>
+<arg>if (window.resetState) { window.resetState(); } else { window.failCount = 0; }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-12T18:12:43.641811" elapsed="0.056651"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:12:43.640512" elapsed="0.061195"/>
+</kw>
+<kw name="Kiem Tra Dang Nhap">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:43.703696" level="INFO">Typing text 'linht' into text field 'id=username'.</msg>
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:43.703696" elapsed="0.229424"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:43.934773" level="INFO">Typing text 'Secret@2026' into text field 'id=password'.</msg>
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:43.933120" elapsed="0.328684"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:44.262854" level="INFO">Clicking button 'id=btnSubmit'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:44.261804" elapsed="0.329003"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-12T18:12:44.791374" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-11-12T18:12:44.590807" elapsed="0.200567"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:44.920947" level="INFO">${actual_msg} = Thông tin đăng nhập không chính xác! (Còn 2 lần)</msg>
+<var>${actual_msg}</var>
+<arg>${MSG_BOX}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:44.791374" elapsed="0.129573"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_msg}</arg>
+<arg>${expected_msg}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-11-12T18:12:44.920947" elapsed="0.000000"/>
+</kw>
+<arg>linht</arg>
+<arg>Secret@2026</arg>
+<arg>Thông tin đăng nhập không chính xác! (Còn 2 lần)</arg>
+<status status="PASS" start="2026-11-12T18:12:43.703696" elapsed="1.217251"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:12:43.639374" elapsed="1.281573"/>
+</test>
+<test id="s1-t3" name="TC_BVA_03" line="58">
+<kw name="Reset Form Va Trang Thai" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:44.930110" level="INFO">Executing JavaScript:
+if (window.resetState) { window.resetState(); } else { window.failCount = 0; }
+Without any arguments.</msg>
+<arg>if (window.resetState) { window.resetState(); } else { window.failCount = 0; }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-12T18:12:44.930110" elapsed="0.061899"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:12:44.928023" elapsed="0.063986"/>
+</kw>
+<kw name="Kiem Tra Dang Nhap">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:44.994999" level="INFO">Typing text 'linhtr' into text field 'id=username'.</msg>
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:44.994999" elapsed="0.370235"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:45.366780" level="INFO">Typing text 'Secret@2026' into text field 'id=password'.</msg>
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:45.366258" elapsed="0.236127"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:45.602385" level="INFO">Clicking button 'id=btnSubmit'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:45.602385" elapsed="0.335922"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-12T18:12:46.138920" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-11-12T18:12:45.938307" elapsed="0.200613"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:46.276551" level="INFO">${actual_msg} = Thông tin đăng nhập không chính xác! (Còn 2 lần)</msg>
+<var>${actual_msg}</var>
+<arg>${MSG_BOX}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:46.138920" elapsed="0.137631"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_msg}</arg>
+<arg>${expected_msg}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-11-12T18:12:46.276551" elapsed="0.000000"/>
+</kw>
+<arg>linhtr</arg>
+<arg>Secret@2026</arg>
+<arg>Thông tin đăng nhập không chính xác! (Còn 2 lần)</arg>
+<status status="PASS" start="2026-11-12T18:12:44.992009" elapsed="1.284542"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:12:44.920947" elapsed="1.359075"/>
+</test>
+<test id="s1-t4" name="TC_BVA_04" line="59">
+<kw name="Reset Form Va Trang Thai" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:46.285574" level="INFO">Executing JavaScript:
+if (window.resetState) { window.resetState(); } else { window.failCount = 0; }
+Without any arguments.</msg>
+<arg>if (window.resetState) { window.resetState(); } else { window.failCount = 0; }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-12T18:12:46.285574" elapsed="0.062143"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:12:46.285574" elapsed="0.062143"/>
+</kw>
+<kw name="Kiem Tra Dang Nhap">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:46.349582" level="INFO">Typing text '1234567890123456789' into text field 'id=username'.</msg>
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:46.349582" elapsed="0.408425"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:46.759450" level="INFO">Typing text 'Secret@2026' into text field 'id=password'.</msg>
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:46.758007" elapsed="0.379952"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:47.139538" level="INFO">Clicking button 'id=btnSubmit'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:47.137959" elapsed="0.441501"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-12T18:12:47.781860" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-11-12T18:12:47.579460" elapsed="0.202400"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:47.915306" level="INFO">${actual_msg} = Thông tin đăng nhập không chính xác! (Còn 2 lần)</msg>
+<var>${actual_msg}</var>
+<arg>${MSG_BOX}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:47.783028" elapsed="0.132278"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_msg}</arg>
+<arg>${expected_msg}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-11-12T18:12:47.915306" elapsed="0.000000"/>
+</kw>
+<arg>1234567890123456789</arg>
+<arg>Secret@2026</arg>
+<arg>Thông tin đăng nhập không chính xác! (Còn 2 lần)</arg>
+<status status="PASS" start="2026-11-12T18:12:46.349582" elapsed="1.565724"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:12:46.283573" elapsed="1.631733"/>
+</test>
+<test id="s1-t5" name="TC_BVA_05" line="60">
+<kw name="Reset Form Va Trang Thai" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:47.915306" level="INFO">Executing JavaScript:
+if (window.resetState) { window.resetState(); } else { window.failCount = 0; }
+Without any arguments.</msg>
+<arg>if (window.resetState) { window.resetState(); } else { window.failCount = 0; }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-12T18:12:47.915306" elapsed="0.069082"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:12:47.915306" elapsed="0.069082"/>
+</kw>
+<kw name="Kiem Tra Dang Nhap">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:47.984388" level="INFO">Typing text '12345678901234567890' into text field 'id=username'.</msg>
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:47.984388" elapsed="0.417712"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:48.402100" level="INFO">Typing text 'Secret@2026' into text field 'id=password'.</msg>
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:48.402100" elapsed="0.371141"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:48.773241" level="INFO">Clicking button 'id=btnSubmit'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:48.773241" elapsed="0.440859"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-12T18:12:49.415970" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-11-12T18:12:49.215125" elapsed="0.200845"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:49.544885" level="INFO">${actual_msg} = Thông tin đăng nhập không chính xác! (Còn 2 lần)</msg>
+<var>${actual_msg}</var>
+<arg>${MSG_BOX}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:49.415970" elapsed="0.128915"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_msg}</arg>
+<arg>${expected_msg}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-11-12T18:12:49.544885" elapsed="0.000000"/>
+</kw>
+<arg>12345678901234567890</arg>
+<arg>Secret@2026</arg>
+<arg>Thông tin đăng nhập không chính xác! (Còn 2 lần)</arg>
+<status status="PASS" start="2026-11-12T18:12:47.984388" elapsed="1.560497"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:12:47.915306" elapsed="1.629579"/>
+</test>
+<test id="s1-t6" name="TC_BVA_06" line="61">
+<kw name="Reset Form Va Trang Thai" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:49.544885" level="INFO">Executing JavaScript:
+if (window.resetState) { window.resetState(); } else { window.failCount = 0; }
+Without any arguments.</msg>
+<arg>if (window.resetState) { window.resetState(); } else { window.failCount = 0; }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-12T18:12:49.544885" elapsed="0.069933"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:12:49.544885" elapsed="0.069933"/>
+</kw>
+<kw name="Kiem Tra Dang Nhap">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:49.614818" level="INFO">Typing text '123456789012345678901' into text field 'id=username'.</msg>
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:49.614818" elapsed="0.351753"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:49.966571" level="INFO">Typing text 'Secret@2026' into text field 'id=password'.</msg>
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:49.966571" elapsed="0.325848"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:50.294447" level="INFO">Clicking button 'id=btnSubmit'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:50.292419" elapsed="0.376382"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-12T18:12:50.869216" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-11-12T18:12:50.668801" elapsed="0.200415"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:50.998541" level="INFO">${actual_msg} = Tên đăng nhập phải có độ dài từ 5 đến 20 ký tự.</msg>
+<var>${actual_msg}</var>
+<arg>${MSG_BOX}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:50.869216" elapsed="0.129325"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_msg}</arg>
+<arg>${expected_msg}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-11-12T18:12:50.998541" elapsed="0.000000"/>
+</kw>
+<arg>123456789012345678901</arg>
+<arg>Secret@2026</arg>
+<arg>Tên đăng nhập phải có độ dài từ 5 đến 20 ký tự.</arg>
+<status status="PASS" start="2026-11-12T18:12:49.614818" elapsed="1.383723"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:12:49.544885" elapsed="1.453656"/>
+</test>
+<test id="s1-t7" name="TC_BVA_07" line="62">
+<kw name="Reset Form Va Trang Thai" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:51.005631" level="INFO">Executing JavaScript:
+if (window.resetState) { window.resetState(); } else { window.failCount = 0; }
+Without any arguments.</msg>
+<arg>if (window.resetState) { window.resetState(); } else { window.failCount = 0; }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-12T18:12:51.005631" elapsed="0.062653"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:12:51.005631" elapsed="0.062653"/>
+</kw>
+<kw name="Kiem Tra Dang Nhap">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:51.068284" level="INFO">Typing text 'linh.tran' into text field 'id=username'.</msg>
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:51.068284" elapsed="0.275732"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:51.344853" level="INFO">Typing text 'Abc1!' into text field 'id=password'.</msg>
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:51.344853" elapsed="0.283715"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:51.628568" level="INFO">Clicking button 'id=btnSubmit'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:51.628568" elapsed="0.388582"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-12T18:12:52.217795" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-11-12T18:12:52.017150" elapsed="0.200645"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:52.355146" level="INFO">${actual_msg} = Mật khẩu phải có độ dài từ 6 đến 32 ký tự.</msg>
+<var>${actual_msg}</var>
+<arg>${MSG_BOX}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:52.217795" elapsed="0.137351"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_msg}</arg>
+<arg>${expected_msg}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-11-12T18:12:52.355146" elapsed="0.000000"/>
+</kw>
+<arg>linh.tran</arg>
+<arg>Abc1!</arg>
+<arg>Mật khẩu phải có độ dài từ 6 đến 32 ký tự.</arg>
+<status status="PASS" start="2026-11-12T18:12:51.068284" elapsed="1.286862"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:12:50.998541" elapsed="1.359832"/>
+</test>
+<test id="s1-t8" name="TC_BVA_08" line="63">
+<kw name="Reset Form Va Trang Thai" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:52.362526" level="INFO">Executing JavaScript:
+if (window.resetState) { window.resetState(); } else { window.failCount = 0; }
+Without any arguments.</msg>
+<arg>if (window.resetState) { window.resetState(); } else { window.failCount = 0; }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-12T18:12:52.362526" elapsed="0.062622"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:12:52.362526" elapsed="0.062622"/>
+</kw>
+<kw name="Kiem Tra Dang Nhap">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:52.431004" level="INFO">Typing text 'linh.tran' into text field 'id=username'.</msg>
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:52.430421" elapsed="0.380163"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:52.810584" level="INFO">Typing text 'Pass1!' into text field 'id=password'.</msg>
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:52.810584" elapsed="0.361788"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:53.172372" level="INFO">Clicking button 'id=btnSubmit'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:53.172372" elapsed="0.435526"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-12T18:12:53.812921" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-11-12T18:12:53.608917" elapsed="0.204004"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:53.941268" level="INFO">${actual_msg} = Thông tin đăng nhập không chính xác! (Còn 2 lần)</msg>
+<var>${actual_msg}</var>
+<arg>${MSG_BOX}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:53.814039" elapsed="0.127229"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_msg}</arg>
+<arg>${expected_msg}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-11-12T18:12:53.941268" elapsed="0.000000"/>
+</kw>
+<arg>linh.tran</arg>
+<arg>Pass1!</arg>
+<arg>Thông tin đăng nhập không chính xác! (Còn 2 lần)</arg>
+<status status="PASS" start="2026-11-12T18:12:52.427142" elapsed="1.514126"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:12:52.361996" elapsed="1.579272"/>
+</test>
+<test id="s1-t9" name="TC_BVA_09" line="64">
+<kw name="Reset Form Va Trang Thai" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:53.941268" level="INFO">Executing JavaScript:
+if (window.resetState) { window.resetState(); } else { window.failCount = 0; }
+Without any arguments.</msg>
+<arg>if (window.resetState) { window.resetState(); } else { window.failCount = 0; }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-12T18:12:53.941268" elapsed="0.073248"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:12:53.941268" elapsed="0.073773"/>
+</kw>
+<kw name="Kiem Tra Dang Nhap">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:54.020296" level="INFO">Typing text 'linh.tran' into text field 'id=username'.</msg>
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:54.016713" elapsed="0.378101"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:54.395338" level="INFO">Typing text 'Secr@12' into text field 'id=password'.</msg>
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:54.395338" elapsed="0.250856"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:54.646194" level="INFO">Clicking button 'id=btnSubmit'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:54.646194" elapsed="0.375324"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-12T18:12:55.222093" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-11-12T18:12:55.021518" elapsed="0.200575"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:55.353762" level="INFO">${actual_msg} = Thông tin đăng nhập không chính xác! (Còn 2 lần)</msg>
+<var>${actual_msg}</var>
+<arg>${MSG_BOX}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:55.223817" elapsed="0.129945"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_msg}</arg>
+<arg>${expected_msg}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-11-12T18:12:55.353762" elapsed="0.000000"/>
+</kw>
+<arg>linh.tran</arg>
+<arg>Secr@12</arg>
+<arg>Thông tin đăng nhập không chính xác! (Còn 2 lần)</arg>
+<status status="PASS" start="2026-11-12T18:12:54.016713" elapsed="1.337049"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:12:53.941268" elapsed="1.412494"/>
+</test>
+<test id="s1-t10" name="TC_BVA_10" line="65">
+<kw name="Reset Form Va Trang Thai" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:55.353762" level="INFO">Executing JavaScript:
+if (window.resetState) { window.resetState(); } else { window.failCount = 0; }
+Without any arguments.</msg>
+<arg>if (window.resetState) { window.resetState(); } else { window.failCount = 0; }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-12T18:12:55.353762" elapsed="0.070238"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:12:55.353762" elapsed="0.070852"/>
+</kw>
+<kw name="Kiem Tra Dang Nhap">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:55.431159" level="INFO">Typing text 'linh.tran' into text field 'id=username'.</msg>
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:55.429258" elapsed="0.265542"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:55.694800" level="INFO">Typing text 'A1b2c3d4e5f6g7h8i9j0k1l2m3n4o5!' into text field 'id=password'.</msg>
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:55.694800" elapsed="0.196384"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:55.891184" level="INFO">Clicking button 'id=btnSubmit'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:55.891184" elapsed="0.263702"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-12T18:12:56.356250" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-11-12T18:12:56.154886" elapsed="0.201364"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:56.462534" level="INFO">${actual_msg} = Thông tin đăng nhập không chính xác! (Còn 2 lần)</msg>
+<var>${actual_msg}</var>
+<arg>${MSG_BOX}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:56.356250" elapsed="0.106284"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_msg}</arg>
+<arg>${expected_msg}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-11-12T18:12:56.462534" elapsed="0.000000"/>
+</kw>
+<arg>linh.tran</arg>
+<arg>A1b2c3d4e5f6g7h8i9j0k1l2m3n4o5!</arg>
+<arg>Thông tin đăng nhập không chính xác! (Còn 2 lần)</arg>
+<status status="PASS" start="2026-11-12T18:12:55.426573" elapsed="1.035961"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:12:55.353762" elapsed="1.108772"/>
+</test>
+<test id="s1-t11" name="TC_BVA_11" line="66">
+<kw name="Reset Form Va Trang Thai" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:56.467589" level="INFO">Executing JavaScript:
+if (window.resetState) { window.resetState(); } else { window.failCount = 0; }
+Without any arguments.</msg>
+<arg>if (window.resetState) { window.resetState(); } else { window.failCount = 0; }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-12T18:12:56.467589" elapsed="0.053735"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:12:56.462534" elapsed="0.058790"/>
+</kw>
+<kw name="Kiem Tra Dang Nhap">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:56.524311" level="INFO">Typing text 'linh.tran' into text field 'id=username'.</msg>
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:56.523256" elapsed="0.288010"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:56.813036" level="INFO">Typing text 'A1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p!' into text field 'id=password'.</msg>
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:56.811266" elapsed="0.254793"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:57.066059" level="INFO">Clicking button 'id=btnSubmit'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:57.066059" elapsed="0.287991"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-12T18:12:57.555919" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-11-12T18:12:57.354050" elapsed="0.202384"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:57.659458" level="INFO">${actual_msg} = Thông tin đăng nhập không chính xác! (Còn 2 lần)</msg>
+<var>${actual_msg}</var>
+<arg>${MSG_BOX}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:57.556434" elapsed="0.103024"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_msg}</arg>
+<arg>${expected_msg}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-11-12T18:12:57.659458" elapsed="0.000000"/>
+</kw>
+<arg>linh.tran</arg>
+<arg>A1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p!</arg>
+<arg>Thông tin đăng nhập không chính xác! (Còn 2 lần)</arg>
+<status status="PASS" start="2026-11-12T18:12:56.521324" elapsed="1.138134"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:12:56.462534" elapsed="1.196924"/>
+</test>
+<test id="s1-t12" name="TC_BVA_12" line="67">
+<kw name="Reset Form Va Trang Thai" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:57.659458" level="INFO">Executing JavaScript:
+if (window.resetState) { window.resetState(); } else { window.failCount = 0; }
+Without any arguments.</msg>
+<arg>if (window.resetState) { window.resetState(); } else { window.failCount = 0; }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-12T18:12:57.659458" elapsed="0.050931"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:12:57.659458" elapsed="0.050931"/>
+</kw>
+<kw name="Kiem Tra Dang Nhap">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:57.710389" level="INFO">Typing text 'linh.tran' into text field 'id=username'.</msg>
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:57.710389" elapsed="0.260570"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:57.970959" level="INFO">Typing text 'Pass12345678901234567890123456789' into text field 'id=password'.</msg>
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:57.970959" elapsed="0.264916"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:58.237908" level="INFO">Clicking button 'id=btnSubmit'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:58.235875" elapsed="0.376050"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-12T18:12:58.814042" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-11-12T18:12:58.611925" elapsed="0.202117"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:58.947020" level="INFO">${actual_msg} = Mật khẩu phải có độ dài từ 6 đến 32 ký tự.</msg>
+<var>${actual_msg}</var>
+<arg>${MSG_BOX}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:58.814042" elapsed="0.132978"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_msg}</arg>
+<arg>${expected_msg}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-11-12T18:12:58.947020" elapsed="0.002531"/>
+</kw>
+<arg>linh.tran</arg>
+<arg>Pass12345678901234567890123456789</arg>
+<arg>Mật khẩu phải có độ dài từ 6 đến 32 ký tự.</arg>
+<status status="PASS" start="2026-11-12T18:12:57.710389" elapsed="1.239162"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:12:57.659458" elapsed="1.290093"/>
+</test>
+<test id="s1-t13" name="TC_EP_01" line="72">
+<kw name="Reset Form Va Trang Thai" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:58.955452" level="INFO">Executing JavaScript:
+if (window.resetState) { window.resetState(); } else { window.failCount = 0; }
+Without any arguments.</msg>
+<arg>if (window.resetState) { window.resetState(); } else { window.failCount = 0; }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-12T18:12:58.955452" elapsed="0.066035"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:12:58.955452" elapsed="0.066644"/>
+</kw>
+<kw name="Kiem Tra Dang Nhap">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:59.022096" level="INFO">Typing text 'linh.tran' into text field 'id=username'.</msg>
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:59.022096" elapsed="0.379148"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:59.402651" level="INFO">Typing text 'Secret@2026' into text field 'id=password'.</msg>
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:59.401244" elapsed="0.306765"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:12:59.708009" level="INFO">Clicking button 'id=btnSubmit'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:12:59.708009" elapsed="0.393809"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-12T18:13:00.304150" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-11-12T18:13:00.101927" elapsed="0.202223"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:00.435480" level="INFO">${actual_msg} = Đăng nhập thành công! Chào mừng linh.tran (Admin).</msg>
+<var>${actual_msg}</var>
+<arg>${MSG_BOX}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:00.304150" elapsed="0.131330"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_msg}</arg>
+<arg>${expected_msg}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-11-12T18:13:00.435480" elapsed="0.003052"/>
+</kw>
+<arg>linh.tran</arg>
+<arg>Secret@2026</arg>
+<arg>Đăng nhập thành công! Chào mừng linh.tran (Admin).</arg>
+<status status="PASS" start="2026-11-12T18:12:59.022096" elapsed="1.416436"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:12:58.952960" elapsed="1.486839"/>
+</test>
+<test id="s1-t14" name="TC_EP_02" line="73">
+<kw name="Reset Form Va Trang Thai" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:00.440380" level="INFO">Executing JavaScript:
+if (window.resetState) { window.resetState(); } else { window.failCount = 0; }
+Without any arguments.</msg>
+<arg>if (window.resetState) { window.resetState(); } else { window.failCount = 0; }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-12T18:13:00.440380" elapsed="0.066154"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:13:00.440380" elapsed="0.066154"/>
+</kw>
+<kw name="Kiem Tra Dang Nhap">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:00.506534" level="INFO">Typing text '  linh.tran ' into text field 'id=username'.</msg>
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:00.506534" elapsed="0.361186"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:00.869580" level="INFO">Typing text 'Secret@2026' into text field 'id=password'.</msg>
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:00.868467" elapsed="0.200362"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:01.068829" level="INFO">Clicking button 'id=btnSubmit'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:01.068829" elapsed="0.335494"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-12T18:13:01.605842" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-11-12T18:13:01.404323" elapsed="0.201519"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:01.708753" level="INFO">${actual_msg} = Thông tin đăng nhập không chính xác! (Còn 2 lần)</msg>
+<var>${actual_msg}</var>
+<arg>${MSG_BOX}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:01.605842" elapsed="0.102911"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2026-11-12T18:13:01.708753" level="FAIL">Thông tin đăng nhập không chính xác! (Còn 2 lần) != Đăng nhập thành công! Chào mừng linh.tran (Admin).</msg>
+<arg>${actual_msg}</arg>
+<arg>${expected_msg}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="FAIL" start="2026-11-12T18:13:01.708753" elapsed="0.000000">Thông tin đăng nhập không chính xác! (Còn 2 lần) != Đăng nhập thành công! Chào mừng linh.tran (Admin).</status>
+</kw>
+<arg>${SPACE}${SPACE}linh.tran${SPACE}</arg>
+<arg>Secret@2026</arg>
+<arg>Đăng nhập thành công! Chào mừng linh.tran (Admin).</arg>
+<status status="FAIL" start="2026-11-12T18:13:00.506534" elapsed="1.202219">Thông tin đăng nhập không chính xác! (Còn 2 lần) != Đăng nhập thành công! Chào mừng linh.tran (Admin).</status>
+</kw>
+<status status="FAIL" start="2026-11-12T18:13:00.440380" elapsed="1.268373">Thông tin đăng nhập không chính xác! (Còn 2 lần) != Đăng nhập thành công! Chào mừng linh.tran (Admin).</status>
+</test>
+<test id="s1-t15" name="TC_EP_03" line="74">
+<kw name="Reset Form Va Trang Thai" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:01.713273" level="INFO">Executing JavaScript:
+if (window.resetState) { window.resetState(); } else { window.failCount = 0; }
+Without any arguments.</msg>
+<arg>if (window.resetState) { window.resetState(); } else { window.failCount = 0; }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-12T18:13:01.713273" elapsed="0.054545"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:13:01.713273" elapsed="0.054545"/>
+</kw>
+<kw name="Kiem Tra Dang Nhap">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:01.770567" level="INFO">Typing text '' into text field 'id=username'.</msg>
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:01.770001" elapsed="0.294276"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:02.064277" level="INFO">Typing text 'Secret@2026' into text field 'id=password'.</msg>
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:02.064277" elapsed="0.336550"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:02.401909" level="INFO">Clicking button 'id=btnSubmit'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:02.400827" elapsed="0.380890"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-12T18:13:02.983217" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-11-12T18:13:02.781717" elapsed="0.201500"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:03.114795" level="INFO">${actual_msg} = Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu.</msg>
+<var>${actual_msg}</var>
+<arg>${MSG_BOX}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:02.983217" elapsed="0.131578"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_msg}</arg>
+<arg>${expected_msg}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-11-12T18:13:03.116075" elapsed="0.000000"/>
+</kw>
+<arg>${EMPTY}</arg>
+<arg>Secret@2026</arg>
+<arg>Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu.</arg>
+<status status="PASS" start="2026-11-12T18:13:01.768547" elapsed="1.347528"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:13:01.713273" elapsed="1.402802"/>
+</test>
+<test id="s1-t16" name="TC_EP_04" line="75">
+<kw name="Reset Form Va Trang Thai" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:03.116075" level="INFO">Executing JavaScript:
+if (window.resetState) { window.resetState(); } else { window.failCount = 0; }
+Without any arguments.</msg>
+<arg>if (window.resetState) { window.resetState(); } else { window.failCount = 0; }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-12T18:13:03.116075" elapsed="0.068403"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:13:03.116075" elapsed="0.069305"/>
+</kw>
+<kw name="Kiem Tra Dang Nhap">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:03.187351" level="INFO">Typing text 'qa' into text field 'id=username'.</msg>
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:03.187351" elapsed="0.365545"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:03.552896" level="INFO">Typing text 'Secret@2026' into text field 'id=password'.</msg>
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:03.552896" elapsed="0.376693"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:03.929589" level="INFO">Clicking button 'id=btnSubmit'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:03.929589" elapsed="0.435829"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-12T18:13:04.567668" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-11-12T18:13:04.365418" elapsed="0.202250"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:04.697324" level="INFO">${actual_msg} = Tên đăng nhập phải có độ dài từ 5 đến 20 ký tự.</msg>
+<var>${actual_msg}</var>
+<arg>${MSG_BOX}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:04.567668" elapsed="0.129656"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_msg}</arg>
+<arg>${expected_msg}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-11-12T18:13:04.697324" elapsed="0.002588"/>
+</kw>
+<arg>qa</arg>
+<arg>Secret@2026</arg>
+<arg>Tên đăng nhập phải có độ dài từ 5 đến 20 ký tự.</arg>
+<status status="PASS" start="2026-11-12T18:13:03.185674" elapsed="1.514238"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:13:03.116075" elapsed="1.583837"/>
+</test>
+<test id="s1-t17" name="TC_EP_05" line="76">
+<kw name="Reset Form Va Trang Thai" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:04.708850" level="INFO">Executing JavaScript:
+if (window.resetState) { window.resetState(); } else { window.failCount = 0; }
+Without any arguments.</msg>
+<arg>if (window.resetState) { window.resetState(); } else { window.failCount = 0; }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-12T18:13:04.707707" elapsed="0.062859"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:13:04.706630" elapsed="0.063936"/>
+</kw>
+<kw name="Kiem Tra Dang Nhap">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:04.770566" level="INFO">Typing text 'nguyenthikhanhlinh2026' into text field 'id=username'.</msg>
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:04.770566" elapsed="0.379355"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:05.149921" level="INFO">Typing text 'Secret@2026' into text field 'id=password'.</msg>
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:05.149921" elapsed="0.381193"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:05.531114" level="INFO">Clicking button 'id=btnSubmit'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:05.531114" elapsed="0.420790"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-12T18:13:06.152582" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-11-12T18:13:05.951904" elapsed="0.200678"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:06.284066" level="INFO">${actual_msg} = Tên đăng nhập phải có độ dài từ 5 đến 20 ký tự.</msg>
+<var>${actual_msg}</var>
+<arg>${MSG_BOX}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:06.152582" elapsed="0.131484"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_msg}</arg>
+<arg>${expected_msg}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-11-12T18:13:06.284066" elapsed="0.000000"/>
+</kw>
+<arg>nguyenthikhanhlinh2026</arg>
+<arg>Secret@2026</arg>
+<arg>Tên đăng nhập phải có độ dài từ 5 đến 20 ký tự.</arg>
+<status status="PASS" start="2026-11-12T18:13:04.770566" elapsed="1.513500"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:13:04.705309" elapsed="1.578757"/>
+</test>
+<test id="s1-t18" name="TC_EP_06" line="77">
+<kw name="Reset Form Va Trang Thai" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:06.284066" level="INFO">Executing JavaScript:
+if (window.resetState) { window.resetState(); } else { window.failCount = 0; }
+Without any arguments.</msg>
+<arg>if (window.resetState) { window.resetState(); } else { window.failCount = 0; }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-12T18:13:06.284066" elapsed="0.070782"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:13:06.284066" elapsed="0.070782"/>
+</kw>
+<kw name="Kiem Tra Dang Nhap">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:06.354848" level="INFO">Typing text 'unknown_user' into text field 'id=username'.</msg>
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:06.354848" elapsed="0.308232"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:06.665396" level="INFO">Typing text 'Secret@2026' into text field 'id=password'.</msg>
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:06.664122" elapsed="0.358483"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:07.022605" level="INFO">Clicking button 'id=btnSubmit'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:07.022605" elapsed="0.386114"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-12T18:13:07.609235" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-11-12T18:13:07.408719" elapsed="0.200516"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:07.740262" level="INFO">${actual_msg} = Thông tin đăng nhập không chính xác! (Còn 2 lần)</msg>
+<var>${actual_msg}</var>
+<arg>${MSG_BOX}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:07.609235" elapsed="0.131027"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_msg}</arg>
+<arg>${expected_msg}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-11-12T18:13:07.740262" elapsed="0.000000"/>
+</kw>
+<arg>unknown_user</arg>
+<arg>Secret@2026</arg>
+<arg>Thông tin đăng nhập không chính xác! (Còn 2 lần)</arg>
+<status status="PASS" start="2026-11-12T18:13:06.354848" elapsed="1.385414"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:13:06.284066" elapsed="1.456196"/>
+</test>
+<test id="s1-t19" name="TC_EP_07" line="78">
+<kw name="Reset Form Va Trang Thai" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:07.740262" level="INFO">Executing JavaScript:
+if (window.resetState) { window.resetState(); } else { window.failCount = 0; }
+Without any arguments.</msg>
+<arg>if (window.resetState) { window.resetState(); } else { window.failCount = 0; }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-12T18:13:07.740262" elapsed="0.069069"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:13:07.740262" elapsed="0.069069"/>
+</kw>
+<kw name="Kiem Tra Dang Nhap">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:07.812538" level="INFO">Typing text 'blocked_acc' into text field 'id=username'.</msg>
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:07.810900" elapsed="0.338967"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:08.149867" level="INFO">Typing text 'Pass#9999' into text field 'id=password'.</msg>
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:08.149867" elapsed="0.354627"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:08.504494" level="INFO">Clicking button 'id=btnSubmit'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:08.504494" elapsed="0.417129"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-12T18:13:09.121853" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-11-12T18:13:08.921623" elapsed="0.200230"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:09.252076" level="INFO">${actual_msg} = Tài khoản của bạn đã bị vô hiệu hóa!</msg>
+<var>${actual_msg}</var>
+<arg>${MSG_BOX}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:09.121853" elapsed="0.130223"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_msg}</arg>
+<arg>${expected_msg}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-11-12T18:13:09.252076" elapsed="0.000000"/>
+</kw>
+<arg>blocked_acc</arg>
+<arg>Pass#9999</arg>
+<arg>Tài khoản của bạn đã bị vô hiệu hóa!</arg>
+<status status="PASS" start="2026-11-12T18:13:07.809331" elapsed="1.442745"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:13:07.740262" elapsed="1.511814"/>
+</test>
+<test id="s1-t20" name="TC_EP_08" line="79">
+<kw name="Reset Form Va Trang Thai" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:09.257175" level="INFO">Executing JavaScript:
+if (window.resetState) { window.resetState(); } else { window.failCount = 0; }
+Without any arguments.</msg>
+<arg>if (window.resetState) { window.resetState(); } else { window.failCount = 0; }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-12T18:13:09.257175" elapsed="0.064322"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:13:09.257175" elapsed="0.064322"/>
+</kw>
+<kw name="Kiem Tra Dang Nhap">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:09.321497" level="INFO">Typing text 'linh.tran' into text field 'id=username'.</msg>
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:09.321497" elapsed="0.309805"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:09.632698" level="INFO">Typing text '' into text field 'id=password'.</msg>
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:09.631302" elapsed="0.297667"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:09.928969" level="INFO">Clicking button 'id=btnSubmit'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:09.928969" elapsed="0.425622"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-12T18:13:10.555040" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-11-12T18:13:10.354591" elapsed="0.200449"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:10.685258" level="INFO">${actual_msg} = Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu.</msg>
+<var>${actual_msg}</var>
+<arg>${MSG_BOX}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:10.555040" elapsed="0.130218"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_msg}</arg>
+<arg>${expected_msg}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-11-12T18:13:10.685258" elapsed="0.000000"/>
+</kw>
+<arg>linh.tran</arg>
+<arg>${EMPTY}</arg>
+<arg>Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu.</arg>
+<status status="PASS" start="2026-11-12T18:13:09.321497" elapsed="1.363761"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:13:09.257175" elapsed="1.428083"/>
+</test>
+<test id="s1-t21" name="TC_EP_09" line="80">
+<kw name="Reset Form Va Trang Thai" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:10.692782" level="INFO">Executing JavaScript:
+if (window.resetState) { window.resetState(); } else { window.failCount = 0; }
+Without any arguments.</msg>
+<arg>if (window.resetState) { window.resetState(); } else { window.failCount = 0; }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-12T18:13:10.692782" elapsed="0.061800"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:13:10.692782" elapsed="0.061800"/>
+</kw>
+<kw name="Kiem Tra Dang Nhap">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:10.756171" level="INFO">Typing text 'linh.tran' into text field 'id=username'.</msg>
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:10.756171" elapsed="0.388831"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:11.145002" level="INFO">Typing text '12345' into text field 'id=password'.</msg>
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:11.145002" elapsed="0.306866"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:11.451868" level="INFO">Clicking button 'id=btnSubmit'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:11.451868" elapsed="0.445682"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-12T18:13:12.097733" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-11-12T18:13:11.897550" elapsed="0.200183"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:12.228773" level="INFO">${actual_msg} = Mật khẩu phải có độ dài từ 6 đến 32 ký tự.</msg>
+<var>${actual_msg}</var>
+<arg>${MSG_BOX}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:12.097733" elapsed="0.131040"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_msg}</arg>
+<arg>${expected_msg}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-11-12T18:13:12.229850" elapsed="0.001073"/>
+</kw>
+<arg>linh.tran</arg>
+<arg>12345</arg>
+<arg>Mật khẩu phải có độ dài từ 6 đến 32 ký tự.</arg>
+<status status="PASS" start="2026-11-12T18:13:10.756171" elapsed="1.474752"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:13:10.685258" elapsed="1.546762"/>
+</test>
+<test id="s1-t22" name="TC_EP_10" line="81">
+<kw name="Reset Form Va Trang Thai" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:12.237647" level="INFO">Executing JavaScript:
+if (window.resetState) { window.resetState(); } else { window.failCount = 0; }
+Without any arguments.</msg>
+<arg>if (window.resetState) { window.resetState(); } else { window.failCount = 0; }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-12T18:13:12.237647" elapsed="0.068672"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:13:12.235390" elapsed="0.070929"/>
+</kw>
+<kw name="Kiem Tra Dang Nhap">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:12.309796" level="INFO">Typing text 'linh.tran' into text field 'id=username'.</msg>
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:12.309796" elapsed="0.387625"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:12.698548" level="INFO">Typing text 'WrongPassword@123' into text field 'id=password'.</msg>
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:12.698548" elapsed="0.394541"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:13.095438" level="INFO">Clicking button 'id=btnSubmit'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:13.093089" elapsed="0.443116"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-12T18:13:13.736863" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-11-12T18:13:13.536205" elapsed="0.200658"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:13.868762" level="INFO">${actual_msg} = Thông tin đăng nhập không chính xác! (Còn 2 lần)</msg>
+<var>${actual_msg}</var>
+<arg>${MSG_BOX}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:13.736863" elapsed="0.131899"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_msg}</arg>
+<arg>${expected_msg}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-11-12T18:13:13.868762" elapsed="0.000000"/>
+</kw>
+<arg>linh.tran</arg>
+<arg>WrongPassword@123</arg>
+<arg>Thông tin đăng nhập không chính xác! (Còn 2 lần)</arg>
+<status status="PASS" start="2026-11-12T18:13:12.307393" elapsed="1.561369"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:13:12.234146" elapsed="1.634616"/>
+</test>
+<test id="s1-t23" name="TC_EP_11" line="82">
+<kw name="Reset Form Va Trang Thai" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:13.873348" level="INFO">Executing JavaScript:
+if (window.resetState) { window.resetState(); } else { window.failCount = 0; }
+Without any arguments.</msg>
+<arg>if (window.resetState) { window.resetState(); } else { window.failCount = 0; }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-12T18:13:13.873348" elapsed="0.064160"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:13:13.873348" elapsed="0.064160"/>
+</kw>
+<kw name="Kiem Tra Dang Nhap">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:13.942264" level="INFO">Typing text 'linh.tran' into text field 'id=username'.</msg>
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:13.940451" elapsed="0.346307"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:14.286758" level="INFO">Typing text 'secret@2026' into text field 'id=password'.</msg>
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:14.286758" elapsed="0.375017"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:14.661775" level="INFO">Clicking button 'id=btnSubmit'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:14.661775" elapsed="0.405239"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-12T18:13:15.267459" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-11-12T18:13:15.067014" elapsed="0.200445"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:15.399573" level="INFO">${actual_msg} = Đăng nhập thành công! Chào mừng linh.tran (Admin).</msg>
+<var>${actual_msg}</var>
+<arg>${MSG_BOX}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:15.267459" elapsed="0.132114"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2026-11-12T18:13:15.399573" level="FAIL">Đăng nhập thành công! Chào mừng linh.tran (Admin). != Thông tin đăng nhập không chính xác! (Còn 2 lần)</msg>
+<arg>${actual_msg}</arg>
+<arg>${expected_msg}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="FAIL" start="2026-11-12T18:13:15.399573" elapsed="0.000000">Đăng nhập thành công! Chào mừng linh.tran (Admin). != Thông tin đăng nhập không chính xác! (Còn 2 lần)</status>
+</kw>
+<arg>linh.tran</arg>
+<arg>secret@2026</arg>
+<arg>Thông tin đăng nhập không chính xác! (Còn 2 lần)</arg>
+<status status="FAIL" start="2026-11-12T18:13:13.937508" elapsed="1.462065">Đăng nhập thành công! Chào mừng linh.tran (Admin). != Thông tin đăng nhập không chính xác! (Còn 2 lần)</status>
+</kw>
+<status status="FAIL" start="2026-11-12T18:13:13.873348" elapsed="1.530324">Đăng nhập thành công! Chào mừng linh.tran (Admin). != Thông tin đăng nhập không chính xác! (Còn 2 lần)</status>
+</test>
+<test id="s1-t24" name="TC_EP_12" line="83">
+<kw name="Reset Form Va Trang Thai" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:15.403672" level="INFO">Executing JavaScript:
+if (window.resetState) { window.resetState(); } else { window.failCount = 0; }
+Without any arguments.</msg>
+<arg>if (window.resetState) { window.resetState(); } else { window.failCount = 0; }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-12T18:13:15.403672" elapsed="0.070956"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:13:15.403672" elapsed="0.070956"/>
+</kw>
+<kw name="Kiem Tra Dang Nhap">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:15.476992" level="INFO">Typing text '' into text field 'id=username'.</msg>
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:15.476992" elapsed="0.352513"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:15.829505" level="INFO">Typing text '' into text field 'id=password'.</msg>
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:15.829505" elapsed="0.344072"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:16.173577" level="INFO">Clicking button 'id=btnSubmit'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:16.173577" elapsed="0.441985"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-12T18:13:16.816081" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-11-12T18:13:16.615562" elapsed="0.200519"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:16.946632" level="INFO">${actual_msg} = Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu.</msg>
+<var>${actual_msg}</var>
+<arg>${MSG_BOX}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:16.817213" elapsed="0.129419"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_msg}</arg>
+<arg>${expected_msg}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-11-12T18:13:16.946632" elapsed="0.000000"/>
+</kw>
+<arg>${EMPTY}</arg>
+<arg>${EMPTY}</arg>
+<arg>Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu.</arg>
+<status status="PASS" start="2026-11-12T18:13:15.476992" elapsed="1.469640"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:13:15.403672" elapsed="1.542960"/>
+</test>
+<test id="s1-t25" name="TC_DT_01" line="88">
+<kw name="Reset Form Va Trang Thai" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:16.954853" level="INFO">Executing JavaScript:
+if (window.resetState) { window.resetState(); } else { window.failCount = 0; }
+Without any arguments.</msg>
+<arg>if (window.resetState) { window.resetState(); } else { window.failCount = 0; }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-12T18:13:16.954853" elapsed="0.061787"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:13:16.954853" elapsed="0.061787"/>
+</kw>
+<kw name="Kiem Tra Khoa Sau 3 Lan Sai">
+<for flavor="IN RANGE">
+<iter>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:17.016640" level="INFO">Typing text 'linh.tran' into text field 'id=username'.</msg>
+<arg>${TXT_USERNAME}</arg>
+<arg>linh.tran</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:17.016640" elapsed="0.351173"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:17.367813" level="INFO">Typing text 'WrongPass0' into text field 'id=password'.</msg>
+<arg>${TXT_PASSWORD}</arg>
+<arg>WrongPass${i}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:17.367813" elapsed="0.298591"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:17.666404" level="INFO">Clicking button 'id=btnSubmit'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:17.666404" elapsed="0.419886"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-12T18:13:18.187922" level="INFO">Slept 100 milliseconds.</msg>
+<arg>0.1s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-11-12T18:13:18.087026" elapsed="0.100896"/>
+</kw>
+<var name="${i}">0</var>
+<status status="PASS" start="2026-11-12T18:13:17.016640" elapsed="1.171282"/>
+</iter>
+<iter>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:18.191638" level="INFO">Typing text 'linh.tran' into text field 'id=username'.</msg>
+<arg>${TXT_USERNAME}</arg>
+<arg>linh.tran</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:18.189396" elapsed="0.376020"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:18.565416" level="INFO">Typing text 'WrongPass1' into text field 'id=password'.</msg>
+<arg>${TXT_PASSWORD}</arg>
+<arg>WrongPass${i}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:18.565416" elapsed="0.254913"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:18.821344" level="INFO">Clicking button 'id=btnSubmit'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:18.820329" elapsed="0.322222"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-12T18:13:19.243065" level="INFO">Slept 100 milliseconds.</msg>
+<arg>0.1s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-11-12T18:13:19.142551" elapsed="0.100514"/>
+</kw>
+<var name="${i}">1</var>
+<status status="PASS" start="2026-11-12T18:13:18.189396" elapsed="1.053669"/>
+</iter>
+<iter>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:19.243065" level="INFO">Typing text 'linh.tran' into text field 'id=username'.</msg>
+<arg>${TXT_USERNAME}</arg>
+<arg>linh.tran</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:19.243065" elapsed="0.243139"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:19.486204" level="INFO">Typing text 'WrongPass2' into text field 'id=password'.</msg>
+<arg>${TXT_PASSWORD}</arg>
+<arg>WrongPass${i}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:19.486204" elapsed="0.251372"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:19.737576" level="INFO">Clicking button 'id=btnSubmit'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:19.737576" elapsed="0.300166"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-12T18:13:20.139786" level="INFO">Slept 100 milliseconds.</msg>
+<arg>0.1s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-11-12T18:13:20.037742" elapsed="0.102044"/>
+</kw>
+<var name="${i}">2</var>
+<status status="PASS" start="2026-11-12T18:13:19.243065" elapsed="0.896721"/>
+</iter>
+<var>${i}</var>
+<value>3</value>
+<status status="PASS" start="2026-11-12T18:13:17.016640" elapsed="3.123146"/>
+</for>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:20.139786" level="INFO">Typing text 'linh.tran' into text field 'id=username'.</msg>
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:20.139786" elapsed="0.306356"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:20.446142" level="INFO">Typing text 'Secret@2026' into text field 'id=password'.</msg>
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:20.446142" elapsed="0.324724"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:20.771939" level="INFO">Clicking button 'id=btnSubmit'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:20.770866" elapsed="0.402063"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-12T18:13:21.373975" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-11-12T18:13:21.172929" elapsed="0.201046"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:21.497447" level="INFO">${actual_msg} = Tài khoản bị tạm khóa do nhập sai liên tiếp quá 3 lần!</msg>
+<var>${actual_msg}</var>
+<arg>${MSG_BOX}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:21.373975" elapsed="0.123472"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_msg}</arg>
+<arg>${expected_msg}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-11-12T18:13:21.497447" elapsed="0.000000"/>
+</kw>
+<arg>linh.tran</arg>
+<arg>Secret@2026</arg>
+<arg>Tài khoản bị tạm khóa do nhập sai liên tiếp quá 3 lần!</arg>
+<status status="PASS" start="2026-11-12T18:13:17.016640" elapsed="4.480807"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:13:16.946632" elapsed="4.550815"/>
+</test>
+<test id="s1-t26" name="TC_DT_02" line="92">
+<kw name="Reset Form Va Trang Thai" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:21.505023" level="INFO">Executing JavaScript:
+if (window.resetState) { window.resetState(); } else { window.failCount = 0; }
+Without any arguments.</msg>
+<arg>if (window.resetState) { window.resetState(); } else { window.failCount = 0; }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-12T18:13:21.505023" elapsed="0.058669"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:13:21.497447" elapsed="0.066245"/>
+</kw>
+<kw name="Kiem Tra Dang Nhap">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:21.567517" level="INFO">Typing text 'abc' into text field 'id=username'.</msg>
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:21.563692" elapsed="0.314214"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:21.877906" level="INFO">Typing text 'Secret@2026' into text field 'id=password'.</msg>
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:21.877906" elapsed="0.321813"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:22.199719" level="INFO">Clicking button 'id=btnSubmit'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:22.199719" elapsed="0.375470"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-12T18:13:22.777316" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-11-12T18:13:22.575189" elapsed="0.202127"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:22.905197" level="INFO">${actual_msg} = Tên đăng nhập phải có độ dài từ 5 đến 20 ký tự.</msg>
+<var>${actual_msg}</var>
+<arg>${MSG_BOX}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:22.778392" elapsed="0.126805"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_msg}</arg>
+<arg>${expected_msg}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-11-12T18:13:22.905197" elapsed="0.000000"/>
+</kw>
+<arg>abc</arg>
+<arg>Secret@2026</arg>
+<arg>Tên đăng nhập phải có độ dài từ 5 đến 20 ký tự.</arg>
+<status status="PASS" start="2026-11-12T18:13:21.563692" elapsed="1.341505"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:13:21.497447" elapsed="1.407750"/>
+</test>
+<test id="s1-t27" name="TC_DT_03" line="93">
+<kw name="Reset Form Va Trang Thai" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:22.913328" level="INFO">Executing JavaScript:
+if (window.resetState) { window.resetState(); } else { window.failCount = 0; }
+Without any arguments.</msg>
+<arg>if (window.resetState) { window.resetState(); } else { window.failCount = 0; }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-12T18:13:22.913328" elapsed="0.061451"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:13:22.905197" elapsed="0.069582"/>
+</kw>
+<kw name="Kiem Tra Dang Nhap">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:22.974779" level="INFO">Typing text 'guest_notfound' into text field 'id=username'.</msg>
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:22.974779" elapsed="0.409236"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:23.384015" level="INFO">Typing text 'Secret@2026' into text field 'id=password'.</msg>
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:23.384015" elapsed="0.363301"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:23.748344" level="INFO">Clicking button 'id=btnSubmit'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:23.747316" elapsed="0.417745"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-12T18:13:24.365333" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-11-12T18:13:24.165061" elapsed="0.201133"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:24.491827" level="INFO">${actual_msg} = Thông tin đăng nhập không chính xác! (Còn 2 lần)</msg>
+<var>${actual_msg}</var>
+<arg>${MSG_BOX}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:24.366194" elapsed="0.125633"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_msg}</arg>
+<arg>${expected_msg}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-11-12T18:13:24.491827" elapsed="0.000000"/>
+</kw>
+<arg>guest_notfound</arg>
+<arg>Secret@2026</arg>
+<arg>Thông tin đăng nhập không chính xác! (Còn 2 lần)</arg>
+<status status="PASS" start="2026-11-12T18:13:22.974779" elapsed="1.517048"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:13:22.905197" elapsed="1.586630"/>
+</test>
+<test id="s1-t28" name="TC_DT_04" line="94">
+<kw name="Reset Form Va Trang Thai" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:24.501359" level="INFO">Executing JavaScript:
+if (window.resetState) { window.resetState(); } else { window.failCount = 0; }
+Without any arguments.</msg>
+<arg>if (window.resetState) { window.resetState(); } else { window.failCount = 0; }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-12T18:13:24.501359" elapsed="0.058198"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:13:24.491827" elapsed="0.067730"/>
+</kw>
+<kw name="Kiem Tra Dang Nhap">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:24.559557" level="INFO">Typing text 'tester_qa' into text field 'id=username'.</msg>
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:24.559557" elapsed="0.333003"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:24.892560" level="INFO">Typing text 'WrongTesting#999' into text field 'id=password'.</msg>
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:24.892560" elapsed="0.335084"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:25.227644" level="INFO">Clicking button 'id=btnSubmit'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:25.227644" elapsed="0.380643"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-12T18:13:25.808741" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-11-12T18:13:25.608287" elapsed="0.201045"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:25.939635" level="INFO">${actual_msg} = Thông tin đăng nhập không chính xác! (Còn 2 lần)</msg>
+<var>${actual_msg}</var>
+<arg>${MSG_BOX}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:25.809332" elapsed="0.130303"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_msg}</arg>
+<arg>${expected_msg}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-11-12T18:13:25.939635" elapsed="0.000000"/>
+</kw>
+<arg>tester_qa</arg>
+<arg>WrongTesting#999</arg>
+<arg>Thông tin đăng nhập không chính xác! (Còn 2 lần)</arg>
+<status status="PASS" start="2026-11-12T18:13:24.559557" elapsed="1.380078"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:13:24.491827" elapsed="1.447808"/>
+</test>
+<test id="s1-t29" name="TC_DT_05" line="95">
+<kw name="Reset Form Va Trang Thai" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:25.944737" level="INFO">Executing JavaScript:
+if (window.resetState) { window.resetState(); } else { window.failCount = 0; }
+Without any arguments.</msg>
+<arg>if (window.resetState) { window.resetState(); } else { window.failCount = 0; }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-12T18:13:25.944737" elapsed="0.064745"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:13:25.944737" elapsed="0.064745"/>
+</kw>
+<kw name="Kiem Tra Dang Nhap">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:26.013897" level="INFO">Typing text 'tester_qa' into text field 'id=username'.</msg>
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:26.009482" elapsed="0.314351"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:26.323833" level="INFO">Typing text 'testing#123' into text field 'id=password'.</msg>
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:26.323833" elapsed="0.348702"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:26.672535" level="INFO">Clicking button 'id=btnSubmit'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:26.672535" elapsed="0.436077"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-12T18:13:27.309066" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-11-12T18:13:27.108612" elapsed="0.200454"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:27.440734" level="INFO">${actual_msg} = Đăng nhập thành công! Chào mừng tester_qa (Tester).</msg>
+<var>${actual_msg}</var>
+<arg>${MSG_BOX}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:27.310786" elapsed="0.129948"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2026-11-12T18:13:27.441830" level="FAIL">Đăng nhập thành công! Chào mừng tester_qa (Tester). != Thông tin đăng nhập không chính xác! (Còn 2 lần)</msg>
+<arg>${actual_msg}</arg>
+<arg>${expected_msg}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="FAIL" start="2026-11-12T18:13:27.441830" elapsed="0.000000">Đăng nhập thành công! Chào mừng tester_qa (Tester). != Thông tin đăng nhập không chính xác! (Còn 2 lần)</status>
+</kw>
+<arg>tester_qa</arg>
+<arg>testing#123</arg>
+<arg>Thông tin đăng nhập không chính xác! (Còn 2 lần)</arg>
+<status status="FAIL" start="2026-11-12T18:13:26.009482" elapsed="1.432348">Đăng nhập thành công! Chào mừng tester_qa (Tester). != Thông tin đăng nhập không chính xác! (Còn 2 lần)</status>
+</kw>
+<status status="FAIL" start="2026-11-12T18:13:25.944737" elapsed="1.497093">Đăng nhập thành công! Chào mừng tester_qa (Tester). != Thông tin đăng nhập không chính xác! (Còn 2 lần)</status>
+</test>
+<test id="s1-t30" name="TC_DT_06" line="96">
+<kw name="Reset Form Va Trang Thai" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:27.449140" level="INFO">Executing JavaScript:
+if (window.resetState) { window.resetState(); } else { window.failCount = 0; }
+Without any arguments.</msg>
+<arg>if (window.resetState) { window.resetState(); } else { window.failCount = 0; }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-12T18:13:27.449140" elapsed="0.066272"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:13:27.449140" elapsed="0.066272"/>
+</kw>
+<kw name="Kiem Tra Dang Nhap">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:27.518556" level="INFO">Typing text 'blocked_acc' into text field 'id=username'.</msg>
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:27.518556" elapsed="0.361486"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:27.881111" level="INFO">Typing text 'Secret@2026' into text field 'id=password'.</msg>
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:27.881111" elapsed="0.381107"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:28.262218" level="INFO">Clicking button 'id=btnSubmit'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:28.262218" elapsed="0.381289"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-12T18:13:28.845704" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-11-12T18:13:28.643507" elapsed="0.202363"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:28.976721" level="INFO">${actual_msg} = Tài khoản của bạn đã bị vô hiệu hóa!</msg>
+<var>${actual_msg}</var>
+<arg>${MSG_BOX}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:28.847009" elapsed="0.129712"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_msg}</arg>
+<arg>${expected_msg}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-11-12T18:13:28.976721" elapsed="0.000000"/>
+</kw>
+<arg>blocked_acc</arg>
+<arg>Secret@2026</arg>
+<arg>Tài khoản của bạn đã bị vô hiệu hóa!</arg>
+<status status="PASS" start="2026-11-12T18:13:27.516800" elapsed="1.459921"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:13:27.449140" elapsed="1.527581"/>
+</test>
+<test id="s1-t31" name="TC_DT_07" line="97">
+<kw name="Reset Form Va Trang Thai" type="SETUP">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:28.984298" level="INFO">Executing JavaScript:
+if (window.resetState) { window.resetState(); } else { window.failCount = 0; }
+Without any arguments.</msg>
+<arg>if (window.resetState) { window.resetState(); } else { window.failCount = 0; }</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-11-12T18:13:28.984298" elapsed="0.065017"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:13:28.984298" elapsed="0.065017"/>
+</kw>
+<kw name="Kiem Tra Dang Nhap">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:29.050972" level="INFO">Typing text 'tester_qa' into text field 'id=username'.</msg>
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:29.050972" elapsed="0.336655"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:29.387627" level="INFO">Typing text 'Testing#123' into text field 'id=password'.</msg>
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:29.387627" elapsed="0.354337"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:29.741964" level="INFO">Clicking button 'id=btnSubmit'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:29.741964" elapsed="0.430584"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-11-12T18:13:30.373465" level="INFO">Slept 200 milliseconds.</msg>
+<arg>0.2s</arg>
+<doc>Pauses execution for the given time.</doc>
+<status status="PASS" start="2026-11-12T18:13:30.172548" elapsed="0.200917"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-11-12T18:13:30.500943" level="INFO">${actual_msg} = Đăng nhập thành công! Chào mừng tester_qa (Tester).</msg>
+<var>${actual_msg}</var>
+<arg>${MSG_BOX}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-12T18:13:30.373465" elapsed="0.127478"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_msg}</arg>
+<arg>${expected_msg}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-11-12T18:13:30.500943" elapsed="0.000000"/>
+</kw>
+<arg>tester_qa</arg>
+<arg>Testing#123</arg>
+<arg>Đăng nhập thành công! Chào mừng tester_qa (Tester).</arg>
+<status status="PASS" start="2026-11-12T18:13:29.050972" elapsed="1.449971"/>
+</kw>
+<status status="PASS" start="2026-11-12T18:13:28.984298" elapsed="1.516645"/>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-11-12T18:13:30.508488" elapsed="2.320962"/>
+</kw>
+<doc>Kiem thu tu dong he thong WebLogin - 31 Test Case Hop Den (DTU CMU-SE 303 MIS)</doc>
+<status status="FAIL" start="2026-11-12T18:12:39.186897" elapsed="53.642553"/>
+</suite>
+<statistics>
+<total>
+<stat pass="27" fail="4" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Login Tests" id="s1" pass="27" fail="4" skip="0">Login Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

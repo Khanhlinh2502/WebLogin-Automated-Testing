@@ -1,0 +1,395 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cổng Đăng Nhập Hệ Thống - WebLogin</title>
+
+    <style>
+        /* ==============================
+           1. THIẾT LẬP CHUNG
+        ============================== */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* ==============================
+           2. KHUNG ĐĂNG NHẬP
+        ============================== */
+
+        .login-card {
+            width: 100%;
+            max-width: 400px;
+            padding: 35px 30px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-card h2 {
+            margin-bottom: 25px;
+            color: #1f497d;
+            text-align: center;
+        }
+
+        /* ==============================
+           3. Ô NHẬP THÔNG TIN
+        ============================== */
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            color: #333;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 11px 14px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .form-group input:focus {
+            border-color: #1f497d;
+            outline: none;
+        }
+
+        /* ==============================
+           4. NÚT ĐĂNG NHẬP
+        ============================== */
+
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background: #1f497d;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-submit:hover {
+            background: #16365c;
+        }
+
+        .btn-submit:disabled {
+            background: #a0aec0;
+            cursor: not-allowed;
+        }
+
+        /* ==============================
+           5. HỘP THÔNG BÁO
+        ============================== */
+
+        #msgBox {
+            margin-top: 18px;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .alert-success {
+            background: #e6f4ea;
+            color: #137333;
+            border: 1px solid #ceead6;
+        }
+
+        .alert-error {
+            background: #fce8e6;
+            color: #c5221f;
+            border: 1px solid #fad2cf;
+        }
+
+        .hidden-box {
+            display: none !important;
+        }
+
+        .visible-box {
+            display: block !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==============================
+         6. GIAO DIỆN ĐĂNG NHẬP
+    ============================== -->
+
+    <div class="login-card">
+        <h2>ĐĂNG NHẬP</h2>
+
+        <form id="loginForm" onsubmit="event.preventDefault(); processLogin();">
+
+            <div class="form-group">
+                <label for="username">Tên đăng nhập:</label>
+
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Nhập từ 5 đến 20 ký tự"
+                    autocomplete="off"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="password">Mật khẩu:</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Nhập từ 6 đến 32 ký tự"
+                    autocomplete="off"
+                >
+            </div>
+
+            <button
+                type="submit"
+                id="btnSubmit"
+                class="btn-submit"
+            >
+                Đăng nhập
+            </button>
+
+            <div id="msgBox" class="hidden-box"></div>
+
+        </form>
+    </div>
+
+    <script>
+        // ==========================================
+        // 1. DỮ LIỆU TÀI KHOẢN
+        // ==========================================
+
+        const USERS_DB = [
+            {
+                username: "linh.tran",
+                passwordHash: "Secret@2026",
+                role: "Admin",
+                isActive: true
+            },
+            {
+                username: "tester_qa",
+                passwordHash: "Testing#123",
+                role: "Tester",
+                isActive: true
+            },
+            {
+                username: "blocked_acc",
+                passwordHash: "Pass#9999",
+                role: "User",
+                isActive: false
+            }
+        ];
+
+        // ==========================================
+        // 2. QUẢN LÝ SỐ LẦN ĐĂNG NHẬP SAI
+        // ==========================================
+
+        // Mỗi tài khoản có một bộ đếm riêng.
+        window.failedAttempts = Object.create(null);
+
+        // Số lần nhập sai tối đa.
+        const MAX_ATTEMPTS = 3;
+
+        // ==========================================
+        // 3. HÀM RESET TRẠNG THÁI KIỂM THỬ
+        // ==========================================
+
+        window.resetState = function () {
+            // Reset bộ đếm của tất cả tài khoản.
+            window.failedAttempts = Object.create(null);
+
+            // Xóa dữ liệu trên form.
+            const form = document.getElementById("loginForm");
+
+            if (form) {
+                form.reset();
+            }
+
+            // Khôi phục trạng thái nút đăng nhập.
+            const submitBtn = document.getElementById("btnSubmit");
+
+            if (submitBtn) {
+                submitBtn.disabled = false;
+            }
+
+            // Xóa thông báo cũ.
+            const box = document.getElementById("msgBox");
+
+            if (box) {
+                box.innerText = "";
+                box.className = "hidden-box";
+            }
+        };
+
+        // ==========================================
+        // 4. HÀM HIỂN THỊ THÔNG BÁO
+        // ==========================================
+
+        function showMessage(msg, isSuccess) {
+            const box = document.getElementById("msgBox");
+
+            box.innerText = msg;
+
+            box.className =
+                (isSuccess ? "alert-success" : "alert-error")
+                + " visible-box";
+        }
+
+        // ==========================================
+        // 5. HÀM XỬ LÝ ĐĂNG NHẬP
+        // ==========================================
+
+        function processLogin() {
+            // Lấy dữ liệu người dùng nhập.
+            const rawUsername = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // 5.1. Kiểm tra thông tin để trống.
+            if (!rawUsername || !password) {
+                showMessage(
+                    "Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu.",
+                    false
+                );
+
+                return;
+            }
+
+            // 5.2. Kiểm tra tên đăng nhập.
+
+            // GIỮ BUG-02: Chưa loại bỏ khoảng trắng đầu và cuối.
+            const username = rawUsername;
+
+            // GIỮ BUG-01: Kiểm tra < 4 thay vì < 5.
+            if (username.length < 4 || username.length > 20) {
+                showMessage(
+                    "Tên đăng nhập phải có độ dài từ 5 đến 20 ký tự.",
+                    false
+                );
+
+                return;
+            }
+
+            // 5.3. Kiểm tra độ dài mật khẩu.
+            if (password.length < 6 || password.length > 32) {
+                showMessage(
+                    "Mật khẩu phải có độ dài từ 6 đến 32 ký tự.",
+                    false
+                );
+
+                return;
+            }
+
+            // 5.4. Lấy số lần đăng nhập sai của tài khoản hiện tại.
+            const currentAttempts = window.failedAttempts[username] || 0;
+
+            // 5.5. Kiểm tra tài khoản đã bị khóa chưa.
+            if (currentAttempts >= MAX_ATTEMPTS) {
+                showMessage(
+                    "Tài khoản bị tạm khóa do nhập sai liên tiếp quá 3 lần!",
+                    false
+                );
+
+                return;
+            }
+
+            // 5.6. Tìm tài khoản trong dữ liệu.
+            const user = USERS_DB.find(
+                u => u.username === username
+            );
+
+            // Nếu không tìm thấy tài khoản.
+            if (!user) {
+                checkLockoutAfterFail(username);
+                return;
+            }
+
+            // 5.7. Kiểm tra tài khoản bị vô hiệu hóa.
+            if (!user.isActive) {
+                showMessage(
+                    "Tài khoản của bạn đã bị vô hiệu hóa!",
+                    false
+                );
+
+                return;
+            }
+
+            // 5.8. Kiểm tra mật khẩu.
+
+            // GIỮ BUG-03: Chưa phân biệt chữ hoa và chữ thường.
+            if (
+                user.passwordHash.toLowerCase() !== password.toLowerCase()
+            ) {
+                checkLockoutAfterFail(username);
+                return;
+            }
+
+            // 5.9. Đăng nhập thành công.
+
+            // Xóa bộ đếm sai của tài khoản hiện tại.
+            delete window.failedAttempts[username];
+
+            showMessage(
+                `Đăng nhập thành công! Chào mừng ${user.username} (${user.role}).`,
+                true
+            );
+        }
+
+        // ==========================================
+        // 6. HÀM KIỂM TRA SỐ LẦN ĐĂNG NHẬP SAI
+        // ==========================================
+
+        function checkLockoutAfterFail(username) {
+            // Tăng số lần đăng nhập sai của đúng tài khoản.
+            window.failedAttempts[username] =
+                (window.failedAttempts[username] || 0) + 1;
+
+            // Lấy số lần sai hiện tại.
+            const currentAttempts = window.failedAttempts[username];
+
+            // Tính số lần nhập sai còn lại.
+            const remaining = MAX_ATTEMPTS - currentAttempts;
+
+            // Kiểm tra đã đạt giới hạn 3 lần chưa.
+            if (currentAttempts >= MAX_ATTEMPTS) {
+                showMessage(
+                    "Tài khoản bị tạm khóa do nhập sai liên tiếp quá 3 lần!",
+                    false
+                );
+            } else {
+                showMessage(
+                    `Thông tin đăng nhập không chính xác! (Còn ${remaining} lần)`,
+                    false
+                );
+            }
+        }
+    </script>
+
+</body>
+</html>
